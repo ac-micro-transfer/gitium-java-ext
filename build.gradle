@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'maven-publish'
+}
+
+group 'com.gitium'
+version '1.0.0'
+
+mainClassName = 'com.gitium.core.ext.App'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven {
+        url 'https://raw.githubusercontent.com/ac-micro-transfer/mvn/master/repository/releases'
+    }
+}
+
+dependencies {
+    implementation 'com.gitium:gitium-java:1.0.0'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId 'gitium-java-ext'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            def repoDir = 'D:\\Projects\\Github\\mvn'
+            def releasesRepoUrl = "$repoDir/repository/releases"
+            def snapshotsRepoUrl = "$repoDir/repository/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "KLine",
+            "request": "launch",
+            "mainClass": "com.gitium.core.ext.App",
+            "projectName": "gitium-java-ext",
+            "args": "kline 999999999999999999999999999999999999999999999999999999999999999999999999999999999 9INALUWVYILLSEXQCH9CTLIBZMM9NNP9FHKIDTTUHYGW9DZM9XNESEGSBUEUNZAGRSXSODP9FYPHLEBEV"
+        },
+        {
+            "type": "java",
+            "name": "GetMatchEntrustAutoList",
+            "request": "launch",
+            "mainClass": "com.gitium.core.ext.App",
+            "projectName": "gitium-java-ext",
+            "args": "getMatchEntrustAutoList 0"
+        },
+        {
+            "type": "java",
+            "name": "GetMatchEntrustManualList",
+            "request": "launch",
+            "mainClass": "com.gitium.core.ext.App",
+            "projectName": "gitium-java-ext",
+            "args": "getMatchEntrustManualList 0"
+        }
+    ]
+}
