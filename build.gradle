@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.gitium'
-version '1.0.0'
+version '1.0.1'
 
 mainClassName = 'com.gitium.core.ext.App'
 
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.gitium:gitium-java:1.0.0'
+    implementation 'com.gitium:gitium-java:1.0.1'
 }
 
 publishing {

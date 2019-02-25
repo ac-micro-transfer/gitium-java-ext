@@ -1,6 +1,6 @@
 # Gitium-Java-Ext
 
-[![](https://img.shields.io/github/release/ac-micro-transfer/gitium-java-ext.svg)](https://github.com/ac-micro-transfer/gitium-java-ext/tree/v1.0.0) [![](https://img.shields.io/github/release/ac-micro-transfer/gitium-java-ext.svg?label=maven)](https://github.com/ac-micro-transfer/mvn/tree/master/repository/releases/com/gitium/gitium-java-ext)
+[![](https://img.shields.io/github/release/ac-micro-transfer/gitium-java-ext.svg)](https://github.com/ac-micro-transfer/gitium-java-ext/tree/v1.0.1) [![](https://img.shields.io/github/release/ac-micro-transfer/gitium-java-ext.svg?label=maven)](https://github.com/ac-micro-transfer/mvn/tree/master/repository/releases/com/gitium/gitium-java-ext)
 
 Gitium-Java-Ext is extension module of Gitium-Java.
 
@@ -17,5 +17,5 @@ repositories {
 ```
 
 ```groovy
-implementation 'com.gitium:gitium-java-ext:1.0.0'
+implementation 'com.gitium:gitium-java-ext:1.0.1'
 ```
