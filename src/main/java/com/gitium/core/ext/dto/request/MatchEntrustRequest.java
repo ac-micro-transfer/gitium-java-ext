@@ -31,7 +31,7 @@ public class MatchEntrustRequest extends GitiumExtCommandRequest {
 
             long outValue,
 
-            int days,
+            long mins,
 
             String receiveAddress
 
@@ -41,13 +41,34 @@ public class MatchEntrustRequest extends GitiumExtCommandRequest {
         this.outcomeCurrency = outCurrency;
         this.leastIncomeValue = inValue;
         this.outcomeValue = outValue;
-        this.laterMinite = days * 24 * 60;
+        this.laterMinite = mins;
         try {
             this.receiveAddress = Checksum.removeChecksum(receiveAddress);
         } catch (Exception e) {
         }
 
         this.bundle = toBundle();
+    }
+
+    @Deprecated
+    public MatchEntrustRequest(
+
+            boolean isAuto,
+
+            String inCurrency,
+
+            String outCurrency,
+
+            long inValue,
+
+            long outValue,
+
+            int days,
+
+            String receiveAddress
+
+    ) {
+        this(isAuto, inCurrency, outCurrency, inValue, outValue, new Long(days * 24 * 60), receiveAddress);
     }
 
     private String toBundle() {
