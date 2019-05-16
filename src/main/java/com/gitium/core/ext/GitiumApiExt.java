@@ -42,17 +42,8 @@ public class GitiumApiExt extends GitiumAPI implements IGitiumApiExt {
     }
 
     @Override
-    public Single<Boolean> matchEntrust(String seed, MatchEntrustRequest request) {
-        return transfer(seed, MATCH_CENTER_ADDRESS, request.getOutCurrency(), request.getOutValue())
-
-                .flatMap(result -> {
-                    request.setFirstAddress(getFirstAddress(seed).map(pair -> pair.getAddress()).blockingGet());
-                    request.sign(seed, result.getHash(), result.getIndex());
-
-                    return extService.matchEntrust(request);
-                })
-
-                .map(r -> r.isOK());
+    public Single<Boolean> matchEntrust(MatchEntrustRequest request) {
+        return extService.matchEntrust(request).map(r -> r.isOK());
     }
 
     @Override
@@ -62,16 +53,8 @@ public class GitiumApiExt extends GitiumAPI implements IGitiumApiExt {
     }
 
     @Override
-    public Single<Boolean> updateMatchEntrustManual(String seed, MatchEntrustOrder order) {
-        return transfer(seed, MATCH_CENTER_ADDRESS, order.getInCurrency(), order.getInValue())
-
-                .flatMap(result -> {
-                    String receiveAddress = getNewAddress(seed).map(pair -> pair.getAddress()).blockingGet();
-                    UpdateMatchEntrustManualRequest request = new UpdateMatchEntrustManualRequest(order,
-                            receiveAddress);
-                    request.sign(seed, result.getHash(), result.getIndex());
-                    return extService.updateMatchEntrustManual(request).map(r -> r.isOK());
-                });
+    public Single<Boolean> updateMatchEntrustManual(UpdateMatchEntrustManualRequest request) {
+        return extService.updateMatchEntrustManual(request).map(r -> r.isOK());
     }
 
     @Override
@@ -119,8 +102,8 @@ public class GitiumApiExt extends GitiumAPI implements IGitiumApiExt {
     }
 
     public static class Builder extends GitiumAPI.Builder {
-        public Builder(String url) {
-            super(url);
+        public Builder(String centralizationUrl, String url) {
+            super(centralizationUrl, url);
         }
 
         @Override

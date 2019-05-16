@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gitium.core.IGitiumApi;
 import com.gitium.core.ext.dto.request.MatchEntrustRequest;
+import com.gitium.core.ext.dto.request.UpdateMatchEntrustManualRequest;
 import com.gitium.core.ext.model.KLine;
 import com.gitium.core.ext.model.MatchEntrustOrder;
 
@@ -15,11 +16,11 @@ public interface IGitiumApiExt extends IGitiumApi {
 
     Single<List<KLine>> kLine(String inCurrency, String outCurrency);
 
-    Single<Boolean> matchEntrust(String seed, MatchEntrustRequest request);
+    Single<Boolean> matchEntrust(MatchEntrustRequest request);
 
     Single<Boolean> checkTrans(MatchEntrustOrder order);
 
-    Single<Boolean> updateMatchEntrustManual(String seed, MatchEntrustOrder order);
+    Single<Boolean> updateMatchEntrustManual(UpdateMatchEntrustManualRequest request);
 
     Single<List<MatchEntrustOrder>> getMatchEntrustAutoList(int pageSize, int pageIndex);
 

@@ -21,7 +21,7 @@ public class App {
     private static IGitiumApiExt api;
 
     public static void main(String[] args) {
-        api = new GitiumApiExt.Builder("http://180.210.204.240").setDebug(true).build();
+        api = new GitiumApiExt.Builder("http://test.gitium.io", "http://180.210.204.240").setDebug(true).build();
         api.getContractList().blockingGet();
 
         String command = args[0];
