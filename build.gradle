@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.gitium'
-version '1.0.3'
+version '1.0.4'
 
 mainClassName = 'com.gitium.core.ext.App'
 
@@ -15,17 +15,24 @@ targetCompatibility = 1.8
 repositories {
     jcenter()
     maven {
-        url 'https://raw.githubusercontent.com/ac-micro-transfer/mvn/master/repository/releases'
+        url 'https://dl.bintray.com/ac-micro-transfer/gitium'
     }
 }
 
+tasks.register("sourcesJar", Jar) {
+    from sourceSets.main.allJava
+    classifier "sources"
+}
+
 dependencies {
-    implementation 'com.gitium:gitium-java:1.0.3'
+    implementation 'com.gitium:gitium-java:1.0.8'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
+            artifact sourcesJar
             artifactId 'gitium-java-ext'
             from components.java
         }
